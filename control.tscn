@@ -20,6 +20,12 @@ offset_top = 137.0
 offset_right = 536.0
 offset_bottom = 168.0
 
+[node name="name_text" type="LineEdit" parent="Client"]
+offset_left = 203.0
+offset_top = 195.0
+offset_right = 538.0
+offset_bottom = 226.0
+
 [node name="Server" type="Node" parent="."]
 script = ExtResource("2_cyox2")
 

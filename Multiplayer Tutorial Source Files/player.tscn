@@ -155,3 +155,5 @@ position = Vector2(53, 0)
 replication_interval = 0.1
 delta_interval = 0.1
 replication_config = SubResource("SceneReplicationConfig_c85fd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -27,7 +27,6 @@ func _ready():
 	peer.connect("peer_disconnected", peer_disconnected)
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	peer.poll()
@@ -48,7 +47,6 @@ func _process(delta):
 			if data.message == Message.removeLobby:
 				if lobbies.has(data.lobbyID):
 					lobbies.erase(data.lobbyID)
-	pass
 
 func peer_connected(id):
 	print("Peer Connected: " + str(id))
@@ -57,11 +55,9 @@ func peer_connected(id):
 		"message" : Message.id
 	}
 	peer.get_peer(id).put_packet(JSON.stringify(users[id]).to_utf8_buffer())
-	pass
-	
+
 func peer_disconnected(id):
 	users.erase(id)
-	pass
 
 
 func JoinLobby(user):
@@ -105,12 +101,10 @@ func JoinLobby(user):
 	}
 	
 	sendToPlayer(user.id, data)
-	
-	
-	
+
 func sendToPlayer(userId, data):
 	peer.get_peer(userId).put_packet(JSON.stringify(data).to_utf8_buffer())
-	
+
 func generateRandomString():
 	var result = ""
 	for i in range(32):
@@ -119,13 +113,11 @@ func generateRandomString():
 	return result
 
 func startServer():
-	peer.create_server(8915)
+	peer.create_server(hostPort)
 	print("Started Server")
 
 func _on_start_server_button_down():
 	startServer()
-	pass # Replace with function body.
-
 
 func _on_button_2_button_down():
 	var message = {
@@ -133,4 +125,3 @@ func _on_button_2_button_down():
 		"data" : "test"
 	}
 	peer.put_packet(JSON.stringify(message).to_utf8_buffer())
-	pass # Replace with function body.
